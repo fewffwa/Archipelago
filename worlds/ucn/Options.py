@@ -1,8 +1,8 @@
 from typing import Dict
-from Options import Choice, Option, DeathLink
+from Options import Choice, Option, DeathLink, Range
 
 
-class ScoreRequiredHundreds(Choice):
+class ScoreRequiredHundreds(Range):
     """The high score required to win divided by 100."""
     display_name = "Required Score (hundreds)"
     default = 50

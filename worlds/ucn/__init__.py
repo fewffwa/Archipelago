@@ -57,7 +57,7 @@ class UcnWorld(World):
 
         self.multiworld.itempool += item_pool
 
-    def set_rules(self):
+    def set_allrules(self):
         set_rules(self.multiworld, self.player)
         set_completion_rules(self.multiworld, self.player)
 
@@ -85,8 +85,6 @@ class UcnWorld(World):
             locked_item = self.create_item(advancement_table[location_name].locked_item)
             self.multiworld.get_location(location_name, self.player).place_locked_item(locked_item)
 
-        # Set priority location for the office
-        self.multiworld.priority_locations[self.player].value.add("Office")
 
     def create_item(self, name: str) -> UcnItem:
         return UcnItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
