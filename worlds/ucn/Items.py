@@ -9,7 +9,7 @@ class UcnItem(Item):
 
 class UcnItemData(NamedTuple):
     code: Optional[int] = None
-    type: ItemClassification = ItemClassification.filler
+    type: ItemClassification = ItemClassification
     can_create: Callable[[MultiWorld, int], bool] = lambda multiworld, player: True
 
 
@@ -79,7 +79,7 @@ item_data_table: Dict[str, UcnItemData] = {
         code=502115,
         type=ItemClassification.progression,
     ),
-        "Pahntom Mangle": UcnItemData(
+        "Phantom Mangle": UcnItemData(
         code=502116,
         type=ItemClassification.progression,
     ),
@@ -161,6 +161,10 @@ item_data_table: Dict[str, UcnItemData] = {
     ),
         "Orville Elephant": UcnItemData(
         code=502136,
+        type=ItemClassification.progression,
+    ),
+        "Nedd Bear": UcnItemData(
+        code=502137,
         type=ItemClassification.progression,
     ),
         "Rockstar Freddy": UcnItemData(
@@ -251,7 +255,7 @@ item_data_table: Dict[str, UcnItemData] = {
         code=502159,
         type=ItemClassification.progression,
     ),
-        "Nightmare Bonnie Plush": UcnItemData(
+        "Bonnie Plush": UcnItemData(
         code=502160,
         type=ItemClassification.progression,
     ),

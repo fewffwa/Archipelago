@@ -9,114 +9,166 @@ def _ucn_has_animatronic( state:CollectionState, animatronic: str, player: int):
 
 def _ucn_can_beat_animatronic (state:CollectionState, animatronic: str, requiredability: str, player: int):
     if _ucn_has_animatronic(state, animatronic, player) and _ucn_has_ability(state, requiredability, player):
+        
         return True
     elif _ucn_has_animatronic(state, animatronic, player) and requiredability == None:
         return True
+        
     else:
         return False
 
 def _ucn_calculate_max_possible_score(state:CollectionState, player: int):
     maxscore = 0
     if _ucn_can_beat_animatronic( state,"Freddy Fazbear", "Left Door", player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200   
     if _ucn_can_beat_animatronic( state,"Bonnie", None, player):
         maxscore = maxscore + 200 
+        
     if _ucn_can_beat_animatronic( state,"Chica", "Global Music Box", player) or _ucn_can_beat_animatronic(state, "Chica", "Change Music", player):
         maxscore = maxscore + 200 
+        
     if _ucn_can_beat_animatronic( state,"Foxy", None, player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+        
     if _ucn_can_beat_animatronic( state,"Toy Freddy", None, player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+        
     if _ucn_can_beat_animatronic( state,"Toy Bonnie", "Mask", player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+        
     if _ucn_can_beat_animatronic( state,"Toy Chica", "Mask", player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+        
     if _ucn_can_beat_animatronic( state,"Mangle", "Snare", player):
         maxscore = maxscore + 200 
+ 
     if _ucn_can_beat_animatronic( state,"BB", "Side Vent", player):
         maxscore = maxscore + 200 
+ 
     if _ucn_can_beat_animatronic( state,"JJ", "Side Vent", player):
         maxscore = maxscore + 200 
+   
     if _ucn_can_beat_animatronic( state,"Withered Chica", "Snare", player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+   
     if _ucn_can_beat_animatronic( state,"Withered Bonnie", "Mask", player):
         maxscore = maxscore + 200 
-    if _ucn_can_beat_animatronic( state,"Marionette", "MusicBox", player):
+      
+    if _ucn_can_beat_animatronic( state,"Marionette", "Music Box", player):
         maxscore = maxscore + 200 
+       
     if _ucn_can_beat_animatronic( state,"Golden Freddy", None, player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+       
     if _ucn_can_beat_animatronic( state,"Springtrap", "Forward Vent", player):
         maxscore = maxscore + 200 
+       
     if _ucn_can_beat_animatronic( state,"Phantom Mangle", None, player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+    
     if _ucn_can_beat_animatronic( state,"Phantom Freddy", "Flashlight", player):
         maxscore = maxscore + 200 
+           
     if _ucn_can_beat_animatronic( state,"Phantom BB", None, player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Nightmare Freddy", "Flashlight", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Nightmare Bonnie", "Bonnie Plush", player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+   
     if _ucn_can_beat_animatronic( state,"Nightmare Fredbear", "Left Door", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Nightmare", "Right Door", player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+    
     if (_ucn_can_beat_animatronic (state, "Jack-O-Chica", "AC", player)) or (_ucn_can_beat_animatronic(state, "Jack-O-Chica", "Right Door", player) and _ucn_can_beat_animatronic(state,"Jack-O-Chica", "Left Door", player)):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Nightmare Mangle", "Nightmare Mangle Plush", player):
         maxscore = maxscore + 200
+    
     if _ucn_can_beat_animatronic( state,"Nightmarionne", None, player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Nightmare BB", "Flashlight", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Old Man Consequences", None, player):
         maxscore = maxscore + 200 
-    if _ucn_can_beat_animatronic( state,"Circus Baby", "Baby Plush", player):
-        maxscore = maxscore + 200 
+    
+    if _ucn_can_beat_animatronic( state,"Circus Baby", "Circus Baby Plush", player):
+        maxscore = maxscore + 200
+    
     if _ucn_can_beat_animatronic( state,"Ballora", "Right Door", player) and _ucn_can_beat_animatronic(state,"Ballora", "Left Door", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Funtime Foxy", None, player) and _ucn_can_beat_animatronic(state,"Ballora", "Left Door", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Ennard", "Forward Vent", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Trash and the Gang", None, player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Helpy", None, player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Happy Frog", "Audio Lure", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Mr. Hippo", "Audio Lure", player) or _ucn_can_beat_animatronic(state,"Mr. Hippo", "Heater", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Nedd Bear", "Audio Lure", player) or _ucn_can_beat_animatronic(state,"Nedd Bear", "Heater", player):
-        maxscore = maxscore + 200 
+        maxscore = maxscore + 200
+    
     if _ucn_can_beat_animatronic( state,"Pigpatch", "Audio Lure", player) or _ucn_can_beat_animatronic(state,"Pigpatch", "Heater", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Orville Elephant", "Heater", player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Rockstar Foxy", None, player):
         maxscore = maxscore + 200 
+    
     if _ucn_can_beat_animatronic( state,"Rockstar Freddy", None, player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Rockstar Bonnie", None, player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Rockstar Chica", None, player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Music Man", None, player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"El Chip", None, player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Funtime Chica", None, player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Molten Freddy", "Forward Vent", player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Scrap Baby", "Shock", player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Afton", "Side Vent", player):
         maxscore = maxscore + 200 
+
     if _ucn_can_beat_animatronic( state,"Lefty", "Global Music Box", player):
         maxscore = maxscore + 200 
+      
     if _ucn_can_beat_animatronic( state,"Phone Guy", None, player):
         maxscore = maxscore + 200
+        
+   
     return maxscore
 
     # Sets rules on entrances and advancements that are always applied
@@ -162,6 +214,16 @@ def set_gamerules(multiworld: MultiWorld, player: int):
     set_rule(multiworld.get_location("2800pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 2800)
     set_rule(multiworld.get_location("2900pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 2900)
     set_rule(multiworld.get_location("3000pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3000)
+    set_rule(multiworld.get_location("3100pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3100)
+    set_rule(multiworld.get_location("3200pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3200)
+    set_rule(multiworld.get_location("3300pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3300)
+    set_rule(multiworld.get_location("3400pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3400)
+    set_rule(multiworld.get_location("3500pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3500)
+    set_rule(multiworld.get_location("3600pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3600)
+    set_rule(multiworld.get_location("3700pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3700)
+    set_rule(multiworld.get_location("3800pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3800)
+    set_rule(multiworld.get_location("3900pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 3900)
+    set_rule(multiworld.get_location("4000pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 4000)
     set_rule(multiworld.get_location("4100pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 4100)
     set_rule(multiworld.get_location("4200pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 4200)
     set_rule(multiworld.get_location("4300pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 4300)
@@ -222,7 +284,3 @@ def set_gamerules(multiworld: MultiWorld, player: int):
     set_rule(multiworld.get_location("9800pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 9800)
     set_rule(multiworld.get_location("9900pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 9900)
     set_rule(multiworld.get_location("10000pts", player), lambda state, : _ucn_calculate_max_possible_score(state, player) >= 10000)
-
-# Sets rules on completion condition
-def set_completion_rules(multiworld: MultiWorld, player: int):
-    multiworld.completion_condition[player] = lambda state: _ucn_calculate_max_possible_score(state, player) >= 5000

@@ -1,9 +1,9 @@
 from .Items import UcnItem, UcnItemData, item_table, item_data_table
 from .Locations import  advancement_table, location_table
 from .Regions import region_data_table
-from .Rules import set_gamerules, set_completion_rules
+from .Rules import set_gamerules
 from worlds.generic.Rules import exclusion_rules
-from BaseClasses import Location, Region, Entrance, Tutorial, Item
+from BaseClasses import Location, Region, Entrance, Tutorial, Item, ItemClassification
 from .Options import ucn_options
 from worlds.AutoWorld import World, WebWorld
 from worlds.LauncherComponents import Component, components, Type
@@ -59,7 +59,8 @@ class UcnWorld(World):
 
     def set_rules(self):
         set_gamerules(self.multiworld, self.player)
-        set_completion_rules(self.multiworld, self.player)
+        location = self.multiworld.get_location("10000pts", self.player)
+        self.multiworld.completion_condition[self.player] = lambda state: state.can_reach(location)
 
     def create_regions(self) -> None:
         # Create regions.
@@ -88,5 +89,8 @@ class UcnWorld(World):
 
     def create_item(self, name: str) -> UcnItem:
         return UcnItem(name, item_data_table[name].type, item_data_table[name].code, self.player)
+    
+    def create_event(self, name: str, classification: ItemClassification) -> Item:
+        return UcnItem(None, classification, None, self.player)
     
 locked_locations = {name: data for name, data in advancement_table.items() if data.locked_item}
