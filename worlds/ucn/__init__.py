@@ -1,7 +1,7 @@
 from .Items import UcnItem, UcnItemData, item_table, item_data_table
 from .Locations import  advancement_table, location_table
 from .Regions import region_data_table
-from .Rules import set_rules, set_completion_rules
+from .Rules import set_gamerules, set_completion_rules
 from worlds.generic.Rules import exclusion_rules
 from BaseClasses import Location, Region, Entrance, Tutorial, Item
 from .Options import ucn_options
@@ -57,8 +57,8 @@ class UcnWorld(World):
 
         self.multiworld.itempool += item_pool
 
-    def set_allrules(self):
-        set_rules(self.multiworld, self.player)
+    def set_rules(self):
+        set_gamerules(self.multiworld, self.player)
         set_completion_rules(self.multiworld, self.player)
 
     def create_regions(self) -> None:

@@ -17,6 +17,11 @@ class AdvData(NamedTuple):
     locked_item: Optional[str] = None
 
 advancement_table: Dict[str, AdvData] = {
+"freebie": AdvData(
+    region="Office",
+    address=501999,
+),
+
 "100pts": AdvData(
     region="Office",
     address=502000,
@@ -379,7 +384,7 @@ advancement_table: Dict[str, AdvData] = {
 ),
 "9100pts": AdvData(
     region="Office",
-    address=502080,
+    address=502090,
 ),
 "9200pts": AdvData(
     region="Office",
