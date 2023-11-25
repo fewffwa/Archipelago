@@ -55,11 +55,22 @@ class UcnWorld(World):
             if item.code and item.can_create(self.multiworld, self.player):
                 item_pool.append(self.create_item(name))
 
+
+        empty_locations = len(self.multiworld.get_unfilled_locations(self.player))
+        remaining_items_needed = empty_locations - len(item_pool)
+        item_pool += [
+            self.create_item(self.get_filler_item_name()) 
+            for _ in range(remaining_items_needed)
+        ]
+
         self.multiworld.itempool += item_pool
+        
+    def get_filler_item_name(self):
+        return "5 faz coins"
 
     def set_rules(self):
         set_gamerules(self.multiworld, self.player)
-        location = self.multiworld.get_location("10000pts", self.player)
+        location = self.multiworld.get_location("5000pts", self.player)
         self.multiworld.completion_condition[self.player] = lambda state: state.can_reach(location)
 
     def create_regions(self) -> None:

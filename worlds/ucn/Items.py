@@ -311,6 +311,10 @@ item_data_table: Dict[str, UcnItemData] = {
         code=502173,
         type=ItemClassification.trap,
     ),
+        "5 faz coins" : UcnItemData(
+        code=502174,
+        type=ItemClassification.filler
+    )
 }
 
 item_table = {name: data.code for name, data in item_data_table.items() if data.code is not None}
