@@ -330,11 +330,11 @@ PINNA_PARK_ONE: SmsRegion = SmsRegion(
         ),
         BlueCoin(
             "Beach Butterfly A",
-            requirements=[Requirements(SPRAY_OR_HOVER),Requirements([[NozzleType.yoshi]])], in_game_bit=343
+            requirements=[Requirements(YOSHI_AND_SPRAY_OR_YOSHI_AND_HOVER)], in_game_bit=343
         ),
         BlueCoin(
             "Beach Butterfly B",
-            requirements=[Requirements(SPRAY_OR_HOVER),Requirements([[NozzleType.yoshi]])], in_game_bit=344
+            requirements=[Requirements(YOSHI_AND_SPRAY_OR_YOSHI_AND_HOVER)], in_game_bit=344
         ),
     ],
     parent_region=SmsRegionName.PINNA_ENTRANCE,
